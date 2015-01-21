@@ -54,13 +54,13 @@ module Brownie
    			end
    		end
 
-     def label(_shipment_digest,path)
+     def label(_shipment_digest, transaction_reference, path)
         shipment_digest = _shipment_digest.nil? ? @shipment_digest : _shipment_digest
          label_xml = '<?xml version="1.0" encoding="ISO-8859-1"?>
             <ShipmentAcceptRequest>
             <Request>
             <TransactionReference>
-            <CustomerContext></CustomerContext>
+            <CustomerContext>' + transaction_reference + '</CustomerContext>
             </TransactionReference>
             <RequestAction>ShipAccept</RequestAction>
             <RequestOption>1</RequestOption>
